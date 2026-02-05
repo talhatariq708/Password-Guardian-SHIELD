@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Guardian | Cyber Security</title>
+    <style>
+        :root {
+            --neon-green: #00ff41;
+            --dark-bg: #0a0a0a;
+            --glass-bg: rgba(25, 25, 25, 0.85);
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background: var(--dark-bg);
+            background-image: 
+                linear-gradient(rgba(0, 255, 65, 0.05) 1px, transparent 1px),
+                linear-gradient(90px, rgba(0, 255, 65, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            background: var(--glass-bg);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 255, 65, 0.2);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 255, 65, 0.1);
+            text-align: center;
+            backdrop-filter: blur(10px);
+            max-width: 450px;
+            width: 90%;
+        }
+
+        h1 {
+            font-size: 2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: var(--neon-green);
+            text-shadow: 0 0 10px var(--neon-green);
+        }
+
+        p {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            background: #000;
+            border: 1px solid #333;
+            border-radius: 5px;
+            color: var(--neon-green);
+            font-size: 1.1rem;
+            outline: none;
+            transition: 0.3s;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            border-color: var(--neon-green);
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
+        }
+
+        button {
+            margin-top: 1.5rem;
+            width: 100%;
+            padding: 15px;
+            background: var(--neon-green);
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #00cc33;
+            box-shadow: 0 0 20px var(--neon-green);
+            transform: translateY(-2px);
+        }
+
+        .result-box {
+            margin-top: 2rem;
+            padding: 15px;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px dashed {{ color or '#444' }};
+            color: {{ color or '#fff' }};
+            text-shadow: 0 0 8px {{ color }};
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SHIELD_v1.0</h1>
+        <p>[ SYSTEMS ONLINE: ANALYZING INPUT ]</p>
+        
+        <form action="/check" method="post">
+            <input type="password" name="password" placeholder="ENTER SECRET KEY..." required>
+            <button type="submit">Execute Analysis</button>
+        </form>
+
+        {% if result %}
+        <div class="result-box">
+            > {{ result }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
